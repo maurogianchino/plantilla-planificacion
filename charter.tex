@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Equipo de medición para biología molecular con técnica LAMP} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -16,21 +16,21 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+\autor{Ing. Mauro Ariel Gianchino}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
-\pertenenciaDirector{pertenencia} 
+\director{Esp. Ing. Gastón Alfredo Vallasciani}
+\pertenenciaDirector{Digito soluciones de automatización S.A.} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Damián Lattanzi}
+\empresaCliente{Wiener lab}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{28 de abril de 2026}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{16 de junio de 2026} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{14 de diciembre de 2026}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -59,7 +59,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & 10 de mayo de 2026 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un equipo que automatice la ejecución del método LAMP sobre muestras biológicas, realizando mediciones de fluorescencia para determinar la presencia o ausencia del patógeno o marcador de interés. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD 5000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el 14 de diciembre de 2026.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,127 +106,113 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+En la actualidad, el diagnóstico molecular ofrece diversos métodos o técnicas para la detección de patógenos. Una de las más conocidas es el PCR (\textit{Polymerase Chain Reaction}), que requiere equipos complejos capaces de realizar ciclos de temperatura precisos, por lo que su uso es limitado en entornos fuera de un laboratorio especializado. Existe otra técnica molecular que en los últimos años fue tomando mayor relevancia, denominada LAMP. El método LAMP (\textit{Loop-mediated Isothermal Amplification}) es una técnica que se destaca por ser isotérmica y puede utilizarse para la detección de enfermedades como el virus de la influenza, COVID y tuberculosis, entre otras.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+Hoy en día, un paciente que desee realizarse un test de COVID por medio de PCR debe ir a un centro de extracción para la toma de muestra y luego debe esperar uno o dos días para la entrega del resultado. Las muestras son enviadas en gran cantidad a laboratorios especializados que realizan el proceso. Teniendo en cuenta lo anterior, se pretende desarrollar un equipo que automatice la ejecución del método LAMP sobre muestras biológicas y para ello debe medir la evolución temporal de una reacción consistente en la mezcla de la muestra del paciente con un reactivo específico para la detección del patógeno o marcador, en condiciones de temperatura constante controlada. Esta solución pretende otorgar la capacidad de realizar pruebas de diagnóstico clínico en lugares o establecimientos por fuera de laboratorios especializados, dando resultados en tiempos relativamente cortos (no mas de una hora). Los dispositivos que engloban estas características de descentralización se denominan POC (\textit{Point of care}). A partir de estos últimos, se pretende que los establecimientos o prestadores presten un servicio que podrán comercializar.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+El proyecto se enmarca dentro del plan de desarrollo de sistemas de diagnóstico de respuesta rápida en línea con el departamento de Biología Molecular y el departamento de Investigación y Desarrollo de la empresa Wiener lab. La empresa es líder en Argentina en lo que respecta a reactivos químicos para química clínica y desarrollo de equipos para laboratorios. El contenido técnico del proyecto mantendrá la confidencialidad y se minimizará su exposición y divulgación para proteger la propiedad de la empresa.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Atendiendo lo explicado anteriormente, se propone un sistema que debe contemplar la necesidad de realizar la lectura en forma independiente de hasta 8 cubetas de reacción fluorescentes de 2 canales cada una, con control de temperatura constante. Para ello, se propone determinar la intensidad de luz a una longitud de onda emitida por la fluorescencia de cada reacción en el proceso de la técnica LAMP, a intervalos fijos de tiempo. Para esto, por cada reacción, debe medirse la corriente generada por un fotodiodo receptor el cual posee un filtro óptico para la selección de la longitud de onda de interés (emisión). La longitud de onda que excita a la reacción proviene de un led RGB (\textit{red}-\textit{green}-\textit{blue}) acorde al tipo de fluoróforo que usa el reactivo. La corriente generada por el fotodiodo es convertida a una tensión equivalente, y se adquiere con un ADC para luego ser leída y procesada por un microcontrolador. Como el proceso debe hacerse a temperatura constante, se debe efectuar un control preciso sobre el calefactor por medio de un sensor de temperatura de precisión. Lo descripto antes es el proceso para una sola cubeta, se debe hacer lo mismo para hasta las 8 cubetas en paralelo. para este desarrollo se pretende contar con un microcontrolador que debe comandar un display táctil, el cual servirá como interfaz para el usuario, selección de modo de operación y visualización de los resultados obtenidos. El microcontrolador también, deberá manejar las diferentes fuentes de luz LED, que serán las longitudes de onda de excitación para las diferentes cubetas/reacciones, y luego, por medio de fotodiodos detectar la intensidad de luz fluorescente emitida. Los valores de lectura obtenidos son interpretados por el firmware del instrumento y determinan si la prueba es positiva o negativa.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la Figura 1 se muestra el diagrama en bloques del sistema. Se observa que existen dos placas de detección con sensores de luz (cada placa con 8 sensores correspondientes a una cubeta), una por cada canal de emisión según el fluoróforo. Las fuentes de luz son independientes por canal, y su funcionamiento está sincronizado con los sensores de detección. Además, se agrega una memoria MicroSD para almacenamiento de parámetros, calibraciones y resultados. Para tareas de desarrollo e investigación también se cuenta con un puerto USB para comunicación con el equipo. 
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.65\textwidth]{./Figuras/bloques.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
-
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
 
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
 
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
-\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\begin{tabularx}{\linewidth}{@{}|l|X|X|X|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& Gerente I+D Equipos       	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Equipo & Esteban Capuano \newline Sebastián Rodríguez dos Santos                  &  Wiener lab            	&       Diseñador mecánico \newline Jefe de Electrónica 	\\ \hline
+Usuario final & Establecimientos clínicos, médicos y/o farmacéuticos                 &  -            	& -       	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
  
-Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item Cliente: Damián Lattanzi es el gerente del área de I+D Equipos en la empresa Wiener lab. Se encargará supervisar el proyecto y evaluar los resultados. También participará en la gestión de la financiación que efectúa la empresa para la realización del proyecto.  
+	\item Orientador: el Esp. Ing. Gastón Vallasciani es experto en el desarrollo de firmware en sistemas embebidos y será el soporte técnico para diseñar el correspondiente al proyecto. 
+	\item Equipo: el Ing. Esteban Capuano posee vasta experiencia en desarrollos mecánicos en lo que respecta equipos comerciales de laboratorio. Su conocimiento en armado de estructuras y ensambles mecánicos permitirán diseñar un esqueleto que cumpla con los requisitos del proyecto. Sebastián Rodríguez dos Santos participará en la supervisión del proyecto y brindará soporte en la definición de requerimientos y conceptos de diseño del sistema embebido.
+	\item Usuario final: entidades del sector de salud o de análisis clínicos como pequeños laboratorios, farmacias, consultorios médicos, entre otros. Son aquellos que con el uso del dispositivo pueden brindar un servicio en el momento.
+	
 \end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+El propósito del proyecto es desarrollar un equipo que permita determinar la presencia o no de un patógeno conocido en una muestra de un paciente por medio de la técnica LAMP. Además, debe otorgar el resultado en un período menor a una hora y ser fácilmente utilizable por el usuario.
 
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
 
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
 
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
+	\item \textbf{Diseño y desarrollo de hardware}
+	\begin{itemize}
+		\item Selección de componentes
+		\item Desarrollo de PCB
+	\end{itemize}
+	\item \textbf{Diseño y desarrollo de firmware}
+	\begin{itemize}
+		\item Programación de microcontrolador
+		\item Programación de interfaz gráfica en pantalla táctil
+	\end{itemize}
+	\item \textbf{Pruebas y validación de resultados}
+	\item \textbf{Participación en la gestión y elaboración de las partes mecánicas}
 		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
-		\end{itemize}
-	\item ...
+		\item Participación en la elaboración del gabinete que unirá las partes del sistema
+	\end{itemize}
+	\item \textbf{Gestionar y participar en la interacción con otros sectores de la empresa}
+	\begin{itemize}
+		\item Se pretende capacitarse y hacer seguimiento del proyecto por medio de reuniones con el departamento de Biología molecular, sector con los conocimientos necesarios para una correcta implementación de la técnica LAMP.
+	\end{itemize}
+	\item \textbf{Documentación}
+	\begin{itemize}
+		\item Generación de informes que exhiban resultados y validen el funcionamiento del equipo
+	\end{itemize}
 	
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+El proyecto no incluye:
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+\begin{itemize}
+	\item \textbf{Desarrollo comercial del equipo}
+	\begin{itemize}
+		\item No se pretende el equipo pueda ser comercializado una vez terminado el proyecto
+	\end{itemize}
+	\item \textbf{Producción a gran escala}
+	\begin{itemize}
+		\item No se elabora documentación ni se desarrollan indicaciones para la producción industrial del equipo
+	\end{itemize}
+		\item \textbf{Capacitación o manual de usuario}
+	\begin{itemize}
+		\item No se elabora documentación que indique como utilizar el equipo
+	\end{itemize}
+
+	
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
