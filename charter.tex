@@ -60,7 +60,7 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & 10 de mayo de 2026 \\ \hline
-%2      & Se completa hasta el punto 9 inclusive
+2      & Se completa hasta el punto 9 inclusive					& 17 de mayo de 2026 \\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un equipo que automatice la ejecución del método LAMP sobre muestras biológicas, realizando mediciones de fluorescencia para determinar la presencia o ausencia del patógeno o marcador de interés. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD 5000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el 14 de diciembre de 2026.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un equipo que automatice la ejecución del método LAMP sobre muestras biológicas, realizando mediciones de fluorescencia para determinar la presencia o ausencia del patógeno o marcador de interés. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD 5000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en el mes de diciembre de 2026.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -112,9 +112,9 @@ Hoy en día, un paciente que desee realizarse un test de COVID por medio de PCR 
 
 El proyecto se enmarca dentro del plan de desarrollo de sistemas de diagnóstico de respuesta rápida, en línea con el departamento de Biología Molecular y el departamento de Investigación y Desarrollo de la empresa Wiener lab. La empresa es líder en Argentina en lo que respecta a reactivos químicos para química clínica y desarrollo de equipos de laboratorio. El contenido técnico del proyecto mantendrá la confidencialidad y se minimizará su exposición y divulgación para proteger la propiedad de la empresa.
 
-Atendiendo lo explicado anteriormente, se propone un sistema que debe contemplar la necesidad de realizar la lectura en forma independiente, de hasta 8 cubetas de reacción fluorescentes de 2 canales cada una, con control de temperatura constante. Para ello, se propone determinar la intensidad de luz a una longitud de onda emitida por la fluorescencia de cada reacción en el proceso de la técnica LAMP, a intervalos fijos de tiempo. Para esto, por cada reacción, debe medirse la corriente generada por un fotodiodo receptor el cual posee un filtro óptico para la selección de la longitud de onda de interés (emisión). La longitud de onda que excita a la reacción proviene de un led RGB (\textit{red}-\textit{green}-\textit{blue}) acorde al tipo de fluoróforo que usa el reactivo. La corriente generada por el fotodiodo es convertida a una tensión equivalente, y se adquiere con un ADC para luego ser leída y procesada por un microcontrolador. Como el proceso debe hacerse a temperatura constante, se debe efectuar un control preciso sobre el calefactor por medio de un sensor de temperatura de precisión. Lo descripto antes es el proceso para una sola cubeta, por lo que se debe hacer lo mismo para las 8 cubetas en paralelo. Para este desarrollo se pretende contar con un microcontrolador que debe comandar un display táctil, el cual servirá como interfaz para el usuario, selección de modo de operación y visualización de los resultados obtenidos. El microcontrolador también deberá manejar las diferentes fuentes de luz LED, que serán las longitudes de onda de excitación para las diferentes cubetas (reacciones)y, luego, por medio de fotodiodos detectar la intensidad de luz fluorescente emitida. Los valores de lectura obtenidos son interpretados por el firmware del instrumento y determinan si la prueba es positiva o negativa.
+Atendiendo lo explicado anteriormente, se propone un sistema que debe contemplar la necesidad de realizar la lectura en forma independiente, de hasta 8 cubetas de reacción fluorescentes de 2 canales cada una, con control de temperatura constante. Para ello, se propone determinar la intensidad de luz a una longitud de onda emitida por la fluorescencia de cada reacción en el proceso de la técnica LAMP, a intervalos fijos de tiempo. Para esto, por cada reacción, debe medirse la corriente generada por un fotodiodo receptor que posee un filtro óptico para la selección de la longitud de onda de interés (emisión). La longitud de onda que excita a la reacción proviene de un led RGB (\textit{red}-\textit{green}-\textit{blue}) acorde al tipo de fluoróforo que usa el reactivo. La corriente generada por el fotodiodo es convertida a una tensión equivalente, y se adquiere con un ADC para luego ser leída y procesada por un microcontrolador. Como el proceso debe hacerse a temperatura constante, se debe efectuar un control preciso sobre el calefactor por medio de un sensor de temperatura de precisión. Lo descripto antes es el proceso para una sola cubeta, por lo que se debe hacer lo mismo para las 8 cubetas en paralelo. Para este desarrollo se pretende contar con un microcontrolador que debe comandar un display táctil, que servirá como interfaz para el usuario, selección de modo de operación y visualización de los resultados obtenidos. El microcontrolador también deberá manejar las diferentes fuentes de luz LED, que serán las longitudes de onda de excitación para las diferentes cubetas y, luego, por medio de fotodiodos detectar la intensidad de luz fluorescente emitida. Los valores de lectura obtenidos son interpretados por el firmware del instrumento y determinan si la prueba es positiva o negativa.
 
-En la Figura 1 se muestra el diagrama en bloques del sistema. Se observa que existen dos placas de detección con 8 sensores de luz cada una, correspondiente a cada canal de emisión según el fluoróforo. Las fuentes de luz son independientes por canal, y su funcionamiento está sincronizado con los sensores de detección. Además, se agrega una memoria MicroSD para almacenamiento de parámetros, calibraciones y resultados. Para tareas de desarrollo e investigación también se cuenta con un puerto USB para comunicación con el equipo. 
+En la figura 1 se muestra el diagrama en bloques del sistema. Se observa que existen dos placas de detección con 8 sensores de luz cada una, correspondiente a cada canal de emisión según el fluoróforo. Las fuentes de luz son independientes por canal y su funcionamiento está sincronizado con los sensores de detección. Además, se agrega una memoria MicroSD para almacenamiento de parámetros, calibraciones y resultados. Para tareas de desarrollo e investigación también se cuenta con un puerto USB para comunicación con el equipo. 
 
 \begin{figure}[htpb]
 \centering 
@@ -169,28 +169,28 @@ El propósito del proyecto es desarrollar un equipo que permita determinar la pr
 
 El proyecto incluye:
 \begin{itemize}
-	\item \textbf{Diseño y desarrollo de hardware}
+	\item Diseño y desarrollo de hardware
 	\begin{itemize}
-		\item Selección de componentes
-		\item Desarrollo de PCB
+		\item Selección de componentes.
+		\item Desarrollo de PCB.
 	\end{itemize}
-	\item \textbf{Diseño y desarrollo de firmware}
+	\item Diseño y desarrollo de firmware.
 	\begin{itemize}
-		\item Programación de microcontrolador
-		\item Programación de interfaz gráfica en pantalla táctil
+		\item Programación de microcontrolador.
+		\item Programación de interfaz gráfica en pantalla táctil.
 	\end{itemize}
-	\item \textbf{Pruebas y validación de resultados}
-	\item \textbf{Participación en la gestión y elaboración de las partes mecánicas}
+	\item Pruebas y validación de resultados
+	\item Participación en la gestión y elaboración de las partes mecánicas
 		\begin{itemize}
-		\item Participación en la elaboración del gabinete que unirá las partes del sistema
+		\item Participación en la elaboración del gabinete que unirá las partes del sistema.
 	\end{itemize}
-	\item \textbf{Gestionar y participar en la interacción con otros sectores de la empresa}
+	\item Gestionar y participar en la interacción con otros sectores de la empresa
 	\begin{itemize}
 		\item Se pretende capacitarse y hacer seguimiento del proyecto por medio de reuniones con el departamento de Biología molecular, sector con los conocimientos necesarios para una correcta implementación de la técnica LAMP.
 	\end{itemize}
-	\item \textbf{Documentación}
+	\item Documentación
 	\begin{itemize}
-		\item Generación de informes que exhiban resultados y validen el funcionamiento del equipo
+		\item Generación de informes que exhiban resultados y validen el funcionamiento del equipo.
 	\end{itemize}
 	
 \end{itemize}
@@ -198,17 +198,17 @@ El proyecto incluye:
 El proyecto no incluye:
 
 \begin{itemize}
-	\item \textbf{Desarrollo comercial del equipo}
+	\item Desarrollo comercial del equipo
 	\begin{itemize}
-		\item No se pretende el equipo pueda ser comercializado una vez terminado el proyecto
+		\item No se pretende el equipo pueda ser comercializado una vez terminado el proyecto.
 	\end{itemize}
-	\item \textbf{Producción a gran escala}
+	\item Producción a gran escala
 	\begin{itemize}
-		\item No se elabora documentación ni se desarrollan indicaciones para la producción industrial del equipo
+		\item No se elabora documentación ni se desarrollan indicaciones para la producción industrial del equipo.
 	\end{itemize}
-		\item \textbf{Capacitación o manual de usuario}
+		\item Capacitación o manual de usuario
 	\begin{itemize}
-		\item No se elabora documentación que indique como utilizar el equipo
+		\item No se elabora documentación que indique como utilizar el equipo.
 	\end{itemize}
 
 	
@@ -226,116 +226,220 @@ Para el desarrollo del presente proyecto se supone que:
 		\item Se asume que los integrantes del equipo, empleados de la empresa, contarán con la disponibilidad horaria necesaria para su participación en el desarrollo.
 		\item Se asume que el departamento de Biología Molecular tendrá la disponibilidad para asistir a las reuniones de seguimiento y brindar capacitación.
 		\item Se da por hecho que se mantiene la confidencialidad para proteger la propiedad de la empresa y que esto no será un impedimento para la evaluación, defensa y aprobación del Trabajo final de la carrera.
+		\item Se da por sentado que los reactivos y la técnica LAMP a utilizar ya se encuentran estabilizados y validados por el departamento de Biología Molecular, limitando el alcance de este proyecto exclusivamente a la automatización y medición óptica.
 
 \end{itemize}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
+En esta sección se enumeran los requerimientos del proyecto.
 
 \begin{enumerate}
-	\item Requerimientos funcionales:
+	\item Requerimientos funcionales y de hardware:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El equipo debe permitir la lectura óptica simultánea e independiente de hasta 8 cubetas de reacción.
+			\item El sistema óptico debe poseer 2 canales de medición (excitación/emisión) por cada cubeta.
+			\item La excitación óptica debe realizarse mediante LEDs RGB con espectro de emisión específicos, seleccionando la longitud de onda según el fluoróforo utilizado.
+			\item La detección de la intensidad de luz debe realizarse mediante fotodiodos con filtros ópticos específicos acoplados a un conversor analógico-digital (ADC).
+			\item  El sistema debe contar con un módulo calefactor capaz de mantener la temperatura constante requerida por el método LAMP (típicamente entre 60 °C y 65 °C, con un error máximo a definir.
+			\item El equipo debe incorporar una memoria MicroSD para el almacenamiento local de parámetros, calibraciones y resultados.
+			\item El equipo debe contar con un puerto USB para la comunicación y tareas de desarrollo/depuración.
+			\item El equipo debe contar con un lector de código de barras para leer y guardar los parámetros de los reactivos.
 		\end{enumerate}
-	\item Requerimientos de documentación:
+	\item Requerimientos de firmware:
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item El firmware debe sincronizar con precisión la activación de las fuentes de luz LED con la lectura del ADC de los fotodiodos. 
+			\item El sistema debe implementar un lazo de control (por ejemplo, PID) para asegurar la estabilidad térmica del bloque de metal.
+			\item El firmware debe contar con un algoritmo que interprete la evolución temporal de la medición óptica para clasificar el resultado como "Positivo" o "Negativo".
+			\item El sistema debe completar el proceso de activación, lectura y entrega de resultados en un tiempo máximo de 60 minutos.
+			\item El firmware debe mantenerse bajo control de versiones y en un repositorio privado en Gitlab o Github.		
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimiento de la interfaz de usuario
+	\begin{enumerate}
+			\item El dispositivo debe contar con una pantalla táctil para la operación del usuario.
+			\item La interfaz gráfica debe permitir configurar el modo de operación, iniciar o detener el ensayo, visualizar el estado actual y los resultados finales.
+		\end{enumerate}
+		\item Requerimientos de testing y validación
+	\begin{enumerate}
+			\item Se debe verificar el correcto funcionamiento del lazo de temperatura mediante la medición con sensores patrón durante un intervalo de tiempo a determinar sin variaciones fuera del rango tolerado.
+			\item Se debe validar el sistema óptico procesando muestras de calibración conocidas y comparando la curva de fluorescencia con la de un equipo comercial o patrón de laboratorio.
+		\end{enumerate}
+		\item Requerimientos de documentación
+	\begin{enumerate}
+			\item Se debe documentar el código fuente del firmware de manera clara.
+			\item Se deben entregar los archivos de diseño de la placa de circuito impreso (PCB) y la lista de materiales (BOM).
+		\end{enumerate}
+
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+A continuación se detallan las historias de usuario del proyecto, indicando el rol, la necesidad y su propósito. Se incluye también una estimación de la complejidad mediante \textit{Story Points}. Para asignar la ponderación a los \textit{Story Points}, se han establecido criterios basados en la cantidad de trabajo, la complejidad, el riesgo y la incertidumbre asociados a cada tarea.
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+Cantidad de trabajo a realizar:
+\begin{itemize}
+    \item Bajo: peso = 1
+    \item Medio: peso = 5
+    \item Alto: peso = 8
+\end{itemize}
 
-El formato propuesto es: 
-\begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+Complejidad del trabajo a realizar:
+\begin{itemize}
+    \item Bajo: peso = 1
+    \item Medio: peso = 5
+    \item Alto: peso = 13
+\end{itemize}
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
-\end{enumerate}
-\end{consigna}
+Riesgo o incertidumbre del trabajo a realizar:
+\begin{itemize}
+    \item Bajo: peso = 5
+    \item Medio: peso = 8
+    \item Alto: peso = 13
+\end{itemize}
+
+Posteriormente, se realizará la sumatoria de los pesos y se tomará el valor de Fibonacci más cercano.
+
+\begin{itemize}
+    \item Como analista de laboratorio (usuario final), quiero hacer un ensayo de amplificación LAMP de forma simple y rápida, para no perder tiempo en configuraciones complejas antes de procesar la muestra.
+    
+    Requiere hacer pantallas, menús y botones, pero la lógica no es compleja. Sin embargo, la experiencia en ese desarrollo es muy poca.
+    \begin{itemize}
+    	
+    	\item Cantidad: 5 
+    	\item Complejidad: 1
+    	\item Riesgo o incertidumbre: 5
+	\end{itemize}
+
+\begin{center}
+\textit{Story point} : 13
+\end{center} 
+    
+    \item Como analista de laboratorio, quiero visualizar el resultado final (positivo o negativo) en la pantalla de forma clara al cabo de los 60 minutos, para poder informar el diagnóstico sin necesidad de interpretar gráficos complejos.
+    
+     Requiere procesar datos y generar curvas para su interpretación. Cualquier ruido óptico o error en la lectura afecta directamente.
+	\begin{itemize}
+    	\item Cantidad: 1 
+    	\item Complejidad: 13
+    	\item Riesgo o incertidumbre: 5
+	\end{itemize}
+
+\begin{center}
+\textit{Story point} : 21
+\end{center}
+    
+    \item Como investigador del departamento de Biología Molecular (Wiener lab), quiero que el equipo guarde un registro temporal con las curvas de fluorescencia en la memoria, para poder exportar los datos a una PC y analizar la cinética de la reacción.
+    
+    Guardar datos integrando un sistema de archivos (SD) es complejo y lleva tiempo. Esta escritura o lectura no debe bloquear el proceso principal del equipo.
+    \begin{itemize}
+    	\item Cantidad: 8
+    	\item Complejidad: 13
+    	\item Riesgo o incertidumbre: 13
+	\end{itemize}
+
+\begin{center}
+\textit{Story point} : 34
+\end{center} 
+    
+    \item Como ingeniero de desarrollo, quiero disponer de un puerto USB y comandos de depuración (\textit{debug}), para poder monitorear en tiempo real las lecturas de los fotodiodos y el estado del lazo PID de temperatura durante la etapa de desarrollo. 
+    
+    Implementar un puerto serie para comandos es algo ya desarrollado y muy directo en microcontroladores. 
+    \begin{itemize}
+    	\item Cantidad: 5
+    	\item Complejidad: 5
+    	\item Riesgo o incertidumbre: 5
+	\end{itemize}
+
+\begin{center}
+\textit{Story point} : 13
+\end{center}
+    
+    \item Como técnico de mantenimiento, quiero acceder a un menú o función de calibración técnica, para poder verificar el funcionamiento individual de los LEDs RGB y calibrar las ganancias de los sensores ópticos en caso de desajustes.
+    
+    Hay que hacer una interfaz específica, que incluya guardado de datos de calibración y los procesos para cada componente.
+    \begin{itemize}
+    	\item Cantidad: 8
+    	\item Complejidad: 5 
+    	\item Riesgo o incertidumbre: 8
+	\end{itemize}
+
+\begin{center}
+\textit{Story point} : 21
+\end{center} 
+
+\end{itemize}
+
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
+	\item Prototipo funcional: hardware electrónico (placas de detección y control) ensamblado y operativo junto con el gabinete mecánico preliminar.
+	\item Archivos de diseño de Hardware: diagramas esquemáticos, diseño de circuito impreso (archivos Gerber) y lista de materiales (BOM).
+	\item Código fuente del Firmware: repositorios con el código implementado para el microcontrolador y para la interfaz gráfica de la pantalla táctil.
+	\item Informes de validación: documentos que detallen los resultados de las pruebas de estabilidad térmica y las mediciones ópticas de fluorescencia realizadas.
+	\item Memoria del Trabajo Final: documento académico final requerido para la aprobación de la Carrera de Especialización en Sistemas Embebidos.
 \end{itemize}
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
+\item Planificación y Gestión del Proyecto (55 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Elaboración y corrección del plan de proyecto. (20 h)
+	\item Reuniones periódicas de seguimiento y revisión con el director y el equipo. (25 h)
+	\item Preparación de la evaluación y cierre de proyecto. (10 h)
 	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
+
+\item Investigación y Análisis Preliminar (50 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Estudio detallado de la técnica LAMP, requerimientos térmicos y ópticos. (20 h)
+	\item Análisis de normativas de seguridad eléctrica aplicables en laboratorio. (10 h)
+	\item Definición de la arquitectura de Hardware y Firmware del sistema. (20 h)
 	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
+
+\item Desarrollo de Hardware (95 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Selección de componentes (15 h)
+	\item Diseño de diagramas esquemáticos del sistema. (30 h)
+	\item Diseño de los circuitos impresos (PCB) de las placas de control y sensores. (40 h)
+	\item Gestión de compras de componentes y fabricación del PCB. (10 h)
+	\end{enumerate}
+
+\item Desarrollo de Firmware (210 h)
+	\begin{enumerate}
+	\item Configuración inicial de periféricos y \textit{drivers} de bajo nivel. (30 h)
+	\item Implementación del lazo de control PID para la estabilización de temperatura. (30 h)
+	\item Desarrollo de las tareas de control de LEDs y lectura sincronizada del ADC. (30 h)
+	\item Desarrollo del algoritmo de análisis de la curva para el diagnóstico. (30 h)
+	\item Implementación del sistema de almacenamiento temporal en memoria MicroSD. (30 h)
+	\item Programación de la interfaz gráfica de usuario en la pantalla táctil. (30 h)
+	\item Desarrollo de la tarea del lector de código de barras para parámetros de reactivos. (15 h)
+	\item Desarrollo de las tareas de calibración (15 h)
+	\end{enumerate}
+
+\item Integración y Pruebas (110 h)
+	\begin{enumerate}
+	\item Integración del hardware con las partes mecánicas y el gabinete preliminar. (10 h)
+	\item Pruebas de funcionamiento del control térmico. (30 h)
+	\item Pruebas de detección óptica utilizando muestras de calibración controladas. (30 h)
+	\item Ensayos biológicos funcionales reales aplicando la técnica LAMP. (40 h)
+	\end{enumerate}
+
+\item Documentación Final (80 h)
+	\begin{enumerate}
+	\item Redacción de los informes de validación térmica y óptica. (15 h)
+	\item Redacción de la Memoria del Trabajo Final. (45 h)
+	\item Preparación de diapositivas y ensayo para la defensa pública. (20 h)
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: tantas.
+Cantidad total de horas: 600 h.
 
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
-
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
-
-\end{consigna}
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
