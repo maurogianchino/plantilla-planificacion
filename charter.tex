@@ -64,7 +64,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
-%3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
+3      & Se completa hasta el punto 12 inclusive                & {25} de {mayo} de 2026 \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
 % Si hay más correcciones pasada la versión 4 también se deben especificar acá
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un equipo que automatice la ejecución del método LAMP sobre muestras biológicas, realizando mediciones de fluorescencia para determinar la presencia o ausencia del patógeno o marcador de interés. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD 5000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en el mes de diciembre de 2026.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un equipo que automatice la ejecución del método LAMP sobre muestras biológicas, realizando mediciones de fluorescencia para determinar la presencia o ausencia del patógeno o marcador de interés. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de USD 22664, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en el mes de diciembre de 2026.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -450,18 +450,11 @@ Cantidad total de horas: 600 h.
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
+A continuación, en el cuadro \ref{fig:costos} se detalla la composición del presupuesto del proyecto expresado en dólares estadounidenses (USD). Se toma el tipo de cambio fijado a la fecha de 24/05/2026, que corresponde a 1 USD = 1425 ARS.
 
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
+Se asume la construcción de dos equipos, uno para el desarrollador y otro para el departamento de Biología Molecular para hacer pruebas y ajustes en simultáneo. Se considera también un viaje a Rosario para capacitación. Además, se considera una cantidad de 20 pruebas por sector (desarrollador y Biología Molecular).
 
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
 
-\end{consigna}
 
 \begin{table}[htpb]
 \centering
@@ -472,51 +465,81 @@ Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si 
 \rowcolor[HTML]{C0C0C0} 
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (USD)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (USD)} \\ \hline
+ Honorarios profesionales &
+  \multicolumn{1}{c|}{600} &
+  \multicolumn{1}{c|}{25} &
+  \multicolumn{1}{c|}{15000} \\ \hline
+ Display &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{37} &
+  \multicolumn{1}{c|}{74} \\ \hline
+Placa leds &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{75} &
+  \multicolumn{1}{c|}{150} \\ \hline
+Placa sensores &
+  \multicolumn{1}{c|}{4} &
+  \multicolumn{1}{c|}{30} &
+  \multicolumn{1}{c|}{120} \\ \hline
+Fuente &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{15} &
+  \multicolumn{1}{c|}{30} \\ \hline
+Gabinetería &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{100} &
+  \multicolumn{1}{c|}{200} \\ \hline
+Bloque de aluminio &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{30} &
+  \multicolumn{1}{c|}{60} \\ \hline
+Filtros ópticos &
+  \multicolumn{1}{c|}{32} &
+  \multicolumn{1}{c|}{10} &
+  \multicolumn{1}{c|}{320} \\ \hline
+Resistencia calefactora &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{10} &
+  \multicolumn{1}{c|}{20} \\ \hline
+Programador de placa &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{160} &
+  \multicolumn{1}{c|}{320} \\ \hline
+Reactivos &
+  \multicolumn{1}{c|}{320} &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{320} \\ \hline
+Cubetas &
+  \multicolumn{1}{c|}{320} &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{320} \\ \hline
+Viáticos (viaje a Rosario) &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{500} &
+  \multicolumn{1}{c|}{500} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{17434} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (USD)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total (USD)} \\ \hline
+30\% de los costos directos &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{5230} &
+  \multicolumn{1}{c|}{5230} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{5230} \\ \hline
 \rowcolor[HTML]{C0C0C0}
 \multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+\multicolumn{1}{c|}{22664} \\ \hline
 \end{tabularx}%
+\caption{Cuadro de costos.}
+\label{fig:costos}
 \end{table}
 
 
