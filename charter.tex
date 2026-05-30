@@ -240,16 +240,15 @@ En esta sección se enumeran los requerimientos del proyecto.
 			\item El equipo debe permitir la lectura óptica simultánea e independiente de hasta 8 cubetas de reacción.
 			\item El sistema óptico debe poseer 2 canales de medición (excitación/emisión) por cada cubeta.
 			\item La excitación óptica debe realizarse mediante LEDs RGB con espectro de emisión específicos, seleccionando la longitud de onda según el fluoróforo utilizado.
-			\item  El sistema debe contar con un módulo calefactor capaz de mantener la temperatura constante requerida por el método LAMP (típicamente entre 60 °C y 65 °C, con un error máximo a definir.
+			\item  El sistema debe contar con un bloque calefactor capaz de mantener la temperatura constante requerida por el método LAMP (típicamente entre 60 °C y 65 °C, con un error máximo a definir.
 			\item El equipo debe interpretar la evolución temporal de la medición óptica para clasificar el resultado como positivo o negativo.
 			\item El equipo debe contar con un puerto para comunicación y análisis de los datos.
 			\item El sistema debe completar el proceso de activación, lectura y entrega de resultados en un tiempo máximo de 45 minutos.
 		\end{enumerate}
-	\item Requerimientos de funcionales:
+	\item Requerimientos funcionales:
 		\begin{enumerate}
 			\item El firmware debe sincronizar con precisión la activación de las fuentes de luz LED con la lectura del ADC de los fotodiodos. 
 			\item El sistema debe implementar un lazo de control (por ejemplo, PID) para asegurar la estabilidad térmica del bloque de metal.
-			\item El firmware debe mantenerse bajo control de versiones y en un repositorio privado en Gitlab o Github.		
 		\end{enumerate}
 	\item Requerimiento de la interfaz de usuario
 	\begin{enumerate}
@@ -263,6 +262,7 @@ En esta sección se enumeran los requerimientos del proyecto.
 		\end{enumerate}
 		\item Requerimientos de documentación
 	\begin{enumerate}
+			\item El firmware debe mantenerse bajo control de versiones y en un repositorio privado en Gitlab o Github.	
 			\item Se debe documentar el código fuente del firmware de manera clara.
 			\item Se deben entregar los archivos de diseño de la placa de circuito impreso (PCB) y la lista de materiales (BOM).
 			\item Se debe entregar la memoria técnica y el informe de avance que solicita la CESE.
@@ -365,7 +365,7 @@ Los entregables del proyecto son:
 	\item Archivos de diseño de hardware: diagramas esquemáticos, diseño de circuito impreso (archivos Gerber) y lista de materiales (BOM).
 	\item Código fuente del firmware: repositorios con el código implementado para el microcontrolador y para la interfaz gráfica de la pantalla táctil.
 	\item Informes de validación: documentos que detallen los resultados de las pruebas de estabilidad térmica y las mediciones ópticas de fluorescencia realizadas.
-	\item Memoria del Trabajo Final: documento académico final requerido para la aprobación de la Carrera de Especialización en Sistemas Embebidos.
+	\item Memoria del Trabajo Final e Informe de avance: documento académico final requerido para la aprobación de la Carrera de Especialización en Sistemas Embebidos.
 \end{itemize}
 
 \section{9. Desglose del trabajo en tareas}
@@ -450,7 +450,7 @@ Cantidad total de horas: 600 h.
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-A continuación, en el cuadro \ref{fig:costos} se detalla la composición del presupuesto del proyecto expresado en dólares estadounidenses (USD). Se toma el tipo de cambio fijado a la fecha de 24/05/2026, que corresponde a 1 USD = 1425 ARS.
+A continuación, en el cuadro \ref{fig:costos}, se detalla la composición del presupuesto del proyecto expresado en dólares estadounidenses (USD). Se toma el tipo de cambio fijado a la fecha de 24/05/2026, que corresponde a 1 USD = 1425 ARS.
 
 Se asume la construcción de dos equipos, uno para el desarrollador y otro para el departamento de Biología Molecular para hacer pruebas y ajustes en simultáneo. Se considera también un viaje a Rosario para capacitación. Además, se considera una cantidad de 20 pruebas por sector (desarrollador y Biología Molecular).
 
@@ -617,26 +617,108 @@ Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
 \begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+\item Req \#1: (1.1) El equipo debe permitir la lectura óptica simultánea e independiente de hasta 8 cubetas de reacción.
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+	\item Verificación: colocar luz de longitud de onda conocida y que se encuentre comprendida dentro del rango de medición del sensor. Utilizar herramientas de \textit{debug} para confirmar que el firmware lee y procesa los 8 canales.
+	\item Validación: el cliente (departamento de Biología Molecular ) inserta 8 cubetas y se corrobora que el equipo reporta 8 lecturas independientes y acordes a la muestra insertada. 
 \end{itemize}
 
 \end{itemize}
 
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
+\begin{itemize}
+\item Req \#2: (1.2) El sistema óptico debe poseer 2 canales de medición (excitación/emisión) por cada cubeta.
 
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
+\begin{itemize}
+	\item Verificación: inyectar luz de prueba, de distinta longitud de onda, en cada fotodiodo por separado y constatar mediante depuración del código que el microcontrolador registra la lectura en dos variables de memoria distintas sin interferencia entre ellas.
+	\item Validación: el usuario inserta una cubeta de prueba con reactivos de calibración y verifica en la pantalla táctil o en la interfaz gráfica que el equipo arroja dos valores de medición simultáneos correspondientes a las longitudes de onda de emisión de cada reactivo.
+\end{itemize}
 
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
+\end{itemize}
 
-\end{consigna}
+\begin{itemize}
+\item Req \#3: (1.3) La excitación óptica debe realizarse mediante LEDs RGB con espectro de emisión específicos, seleccionando la longitud de onda según el fluoróforo utilizado.
+
+\begin{itemize}
+	\item Verificación: colocar frente al LED RGB el filtro óptico de excitación correspondiente al fluoróforo (que solo deja pasar esa longitud de onda específica) y medir la intensidad lumínica resultante con el fotodiodo sensor del circuito. Si el firmware enciende el canal correcto, la luz atravesará el filtro y generará una lectura alta en el ADC; si enciende un color equivocado, el filtro bloqueará la luz.
+	\item Validación: el cliente procesa reactivos específicos de Wiener lab  y comprueba visualmente y mediante el resultado de la prueba que la luz emitida logra excitar correctamente la muestra, generando la fluorescencia esperada.
+\end{itemize}
+
+\end{itemize}
+
+\begin{itemize}
+\item Req \#4: (1.4) El sistema debe contar con un bloque calefactor capaz de mantener la temperatura constante requerida por el método LAMP (típicamente entre 60 °C y 65 °C).
+
+\begin{itemize}
+	\item Verificación: colocar una termocupla directamente en el bloque de aluminio y registrar la temperatura durante una hora cada 1 minuto, comprobando que no haya variaciones fuera del rango tolerado.
+	\item Validación: el cliente procesa una muestra real y verifica que el ensayo LAMP transcurre de manera exitosa, confirmando implícitamente que la temperatura fue la adecuada para la reacción.
+\end{itemize}
+
+\end{itemize}
+
+\begin{itemize}
+\item Req \#5: (1.5) El equipo debe interpretar la evolución temporal de la medición óptica para clasificar el resultado como positivo o negativo.
+
+\begin{itemize}
+	\item Verificación: cargar un arreglo de datos simulados en la memoria del microcontrolador  y ejecutar el algoritmo de diagnóstico  para asegurar que el código clasifica correctamente el resultado matemático.
+	\item Validación: procesar en el equipo un lote de muestras biológicas con conocimiento previo de la existencia de un patógeno o no. El cliente validará que la tasa de acierto del equipo frente al diagnóstico esperado sea la esperada.
+\end{itemize}
+
+\end{itemize}
+
+\begin{itemize}
+\item Req \#6: (1.6) El equipo debe contar con un puerto para comunicación y análisis de los datos.
+
+\begin{itemize}
+	\item Verificación: transmitir tramas de datos pesadas (miles de lecturas simuladas) a través del puerto de comunicación USB desde el microcontrolador hacia la PC, verificando la recepción de un archivo con los datos.
+	\item Validación: El investigador del departamento de Biología Molecular conecta el equipo a su PC y comprueba que puede extraer sin problemas las planillas de resultados, verificando que los formatos (columnas, tiempos, valores) le resultan útiles para su análisis de laboratorio.
+\end{itemize}
+
+\end{itemize}
+
+
+\begin{itemize}
+\item Req \#7: (1.7) El sistema debe completar el proceso de activación, lectura y entrega de resultados en un tiempo máximo de 45 minutos.
+
+\begin{itemize}
+	\item Verificación: programar un temporizador (un \textit{timer} interno) en el microcontrolador con timers internos para cronometrar la ejecución exacta desde la interrupción del botón de inicio hasta la finalización del ensayo.
+	\item Validación: un investigador en Biología molecular inicia un ciclo de ensayo y comprueba con su propio reloj que la pantalla táctil exhibe el resultado final antes de que transcurran los 45 minutos exigidos.
+\end{itemize}
+
+\end{itemize}
+
+
+\begin{itemize}
+\item Req \#8: (2.2) El sistema debe implementar un lazo de control (por ejemplo, PID) para asegurar la estabilidad térmica del bloque de metal.
+
+\begin{itemize}
+	\item Verificación: monitorear por medio de la depuración del código las variables de control (Error, P, I, D y salida de control)  introduciendo perturbaciones térmicas forzadas (por ejemplo, ventilando el bloque) y medir el tiempo de respuesta del algoritmo para volver punto crítico de temperatura.
+	\item Validación: el cliente opera el equipo en condiciones ambientales normales de laboratorio durante varias horas y corrobora que la interfaz de usuario nunca arroja una alerta de "falla de temperatura" ni se detiene el ensayo por desestabilización térmica.
+\end{itemize}
+
+\end{itemize}
+
+\begin{itemize}
+\item Req \#9: (3.2) La interfaz gráfica debe permitir configurar el modo de operación, iniciar o detener el ensayo, visualizar el estado actual y los resultados finales.
+
+\begin{itemize}
+	\item Verificación: interactuar manualmente con todas las opciones y botones de la pantalla táctil mientras el microcontrolador se encuentra conectado en modo \textit{debug} al entorno de desarrollo (IDE). Colocar \textit{breakpoints} en las tareas de lectura táctil para corroborar que el firmware detecta correctamente los botones.
+	\item Validación: entregar el prototipo a personal de la empresa que no esté involucrado en el proyecto y pedirles que intenten iniciar un ensayo sin recibir instrucciones previas, confirmando que la interfaz es intuitiva y funcional.
+\end{itemize}
+
+\end{itemize}
+
+\begin{itemize}
+\item Req \#10: (4.2) Se debe validar el sistema completo procesando muestras y comparando la curva de fluorescencia con la de un equipo comercial o patrón de laboratorio.
+
+\begin{itemize}
+	\item Verificación: extraer las curvas de evolución temporal generadas por los fotodiodos (exportadas vía USB) y superponerlas matemáticamente en Python o MATLAB contra un modelo matemático de reacción LAMP teórica para comparar.
+	\item Validación: el equipo de Biología molecular extrae los datos del equipo y los compara con los resultados de un equipo de la competencia.
+\end{itemize}
+
+\end{itemize}
+
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
