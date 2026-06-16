@@ -65,7 +65,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
 3      & Se completa hasta el punto 12 inclusive                & {25} de {mayo} de 2026 \\ \hline
-%4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
+4      & Se completa el plan	                                 & {31} de {mayo} de 2026 \\ \hline
 
 % Si hay más correcciones pasada la versión 4 también se deben especificar acá
 
@@ -546,33 +546,48 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+a) Identificación de los riesgos y estimación de sus consecuencias:
 
-Riesgo 2:
+
+Riesgo 1: no finalizar el proyecto en el plazo establecido.
+
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+\item Severidad (S): 9. Demora en entregar el equipo al cliente según lo establecido y, además, no terminar la especialización en el tiempo estipulado.
+
+\item Ocurrencia (O): 7. El desarrollo es amplio y abarca no solo muchas tareas sino también la participación de agentes externos como el departamento de Biología molecular y tareas que deben desarrollar otras personas en el equipo (Mecánica).
 \end{itemize}
 
-Riesgo 3:
+Riesgo 2: demoras en importación de componentes como bloque de aluminio, resistencia calefactora y/o filtros ópticos.
+
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+\item Severidad (S): 9. Estos elementos conforman el núcleo de las funciones térmicas y ópticas. Sin ellos, es imposible realizar las tareas de integración final y de validación de la curva de fluorescencia para el método LAMP.
+
+\item Ocurrencia (O): 7. Debido a los tiempos aduaneros locales y la escasez de proveedores nacionales para insumos de óptica específicos, las demoras en importación son altamente probables.
 \end{itemize}
 
+Riesgo 3: interferencia óptica o filtración de luz ambiental que afecte la lectura de la fluorescencia.
+
+\begin{itemize}
+\item Severidad (S): 6. Si el ruido óptico alcanza los sensores de detección, el algoritmo podría calcular mal la intensidad de la señal y arrojar falsos diagnósticos, anulando el propósito de la medición. 
+
+\item Ocurrencia (O): 8. Existe una probabilidad moderada ya que depende de las tolerancias de mecanizado del gabinete para asegurar un sellado hermético a la luz entre las 8 cubetas, los filtros y los fotodiodos. Además, los fluorósforos coinciden en rangos de emisión y excitación en partes de su curva, por lo que la emisión de uno de ellos puede ser la excitación de otro en el mismo reactivo.
+\end{itemize}
+
+Riesgo 4: funcionamiento erróneo en componentes debido a las temperaturas alcanzadas por el bloque calefactor.
+
+\begin{itemize}
+\item Severidad (S): 6. Las temperaturas continuas entre 60 °C y 65 °C se propagan hacia las placas electrónicas cercanas (placas de led y detección), influyendo en los niveles de tensión de los ADC y/o en la emisión de los leds.
+
+\item Ocurrencia (O): 2. Si bien existe la probabilidad de ocurrencia, los componentes son seleccionados para que dentro de su rango térmico de operación se encuentre la temperatura máxima del bloque calefactor.
+\end{itemize}
+
+Riesgo 5: falta de componentes por destrucción de los mismos en el proceso de desarrollo y medición.
+
+\begin{itemize}
+\item Severidad (S): 8. Dañar la pantalla táctil, una placa de sensores o la placa principal durante las mediciones con el instrumental de laboratorio detendría por completo el desarrollo de hardware hasta obtener un repuesto 
+
+\item Ocurrencia (O): 3. Es una probabilidad relativamente baja dado que el presupuesto contempla la construcción de dos equipos (uno para el desarrollador y otro para Biología Molecular), lo que provee de cierto stock de repuesto inicial frente a un accidente.
+\end{itemize}
 
 b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 
@@ -582,36 +597,47 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+No finalizar el proyecto en el plazo establecido       &  9 & 7  &  63   &  9  &  3  &   27   \\ \hline
+Demoras en importación de componentes como bloque de aluminio, resistencia calefactora y/o filtros ópticos       &9   &  7 &  63   &  9  & 4   &   36   \\ \hline
+Interferencia óptica o filtración de luz ambiental que afecte la lectura de la fluorescencia       & 5  & 8  &  48   &  5  &  3  &  15    \\ \hline
+Funcionamiento erróneo en componentes debido a las temperaturas alcanzadas por el bloque calefactor       & 6  & 2  &  12   &  -  & -   &     - \\ \hline
+Falta de componentes por destrucción de los mismos en el proceso de desarrollo y medición       & 8  & 3  &  24   & -   &  -  &   -   \\ \hline
 \end{tabularx}%
 \end{table}
 
+
 Criterio adoptado: 
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 40.
+
+c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+Riesgo 1: emplear horas laborales en el desarrollo del proyecto para garantizar el cumplimiento del cronograma y la fecha límite estipulada. 
 
-\end{consigna}
+\begin{itemize}
+\item Severidad (S*): 9. Se mantiene la severidad porque el resultado es el mismo.
+
+\item Ocurrencia (O*): 3. La ocurrencia baja considerablemente debido a que se emplean más horas para el desarrollo.
+\end{itemize}
+
+Riesgo 2: se gestiona la compra y el pago de los insumos críticos importados en la primera semana de desarrollo del proyecto. Además, se evalúan proveedores locales aún si el costo es muy superior que el importado.
+
+\begin{itemize}
+\item Severidad (S*): 9. La necesidad de contar con estos componentes sigue siendo fundamental para validar el equipo.
+
+\item Ocurrencia (O*): 4. Al adelantar las gestiones al inicio del proyecto, los tiempos naturales de aduana y envíos quedarán absorbidos por la holgura de la etapa inicial de investigación y desarrollo de código.
+\end{itemize}
+
+Riesgo 3: Se implementarán estrategias combinadas de diseño mecánico y de firmware. A nivel mecánico, se diseñará el compartimiento de las cubetas con encastres de tolerancia ajustada y tapas herméticas a la luz. Además, el interior del bloque se tratará con anodizado negro mate para absorber rebotes lumínicos y minimizar la interferencia entre las muestras adyacentes. A nivel de firmware, se programará una técnica de detección diferencial: el microcontrolador realizará una primera lectura del fotodiodo con el LED apagado (registrando así el nivel de luz ambiental/ruido de fondo) y luego la restará de la lectura principal con el LED encendido, cancelando cualquier interferencia externa constante.
+
+\begin{itemize}
+\item Severidad (S*): 5. La severidad no se modifica, ya que si la interferencia óptica persistiera logrando evadir estas barreras, el algoritmo seguiría calculando erróneamente la intensidad de la señal.
+
+\item Ocurrencia (O*): 3. Al combinar un diseño mecánico a prueba de luz con un procesamiento digital de señales que cancela el ruido de fondo, sumado a la correcta elección de los filtros ópticos pasabanda, la probabilidad de que la luz afecte la lectura final se reduce.
+\end{itemize}
 
 
 \section{14. Gestión de la calidad}
@@ -671,8 +697,8 @@ Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de
 \item Req \#6: (1.6) El equipo debe contar con un puerto para comunicación y análisis de los datos.
 
 \begin{itemize}
-	\item Verificación: transmitir tramas de datos pesadas (miles de lecturas simuladas) a través del puerto de comunicación USB desde el microcontrolador hacia la PC, verificando la recepción de un archivo con los datos.
-	\item Validación: El investigador del departamento de Biología Molecular conecta el equipo a su PC y comprueba que puede extraer sin problemas las planillas de resultados, verificando que los formatos (columnas, tiempos, valores) le resultan útiles para su análisis de laboratorio.
+	\item Verificación: transmitir tramas de datos pesadas (miles de lecturas simuladas) a través del puerto de comunicación USB desde el microcontrolador hacia la PC y verificar la recepción de un archivo con los datos.
+	\item Validación: El investigador del departamento de Biología Molecular conecta el equipo a su PC y comprueba que puede extraer sin problemas las planillas de resultados, verificando que los formatos (columnas, tiempos y valores) le resultan útiles para su análisis de laboratorio.
 \end{itemize}
 
 \end{itemize}
@@ -682,7 +708,7 @@ Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de
 \item Req \#7: (1.7) El sistema debe completar el proceso de activación, lectura y entrega de resultados en un tiempo máximo de 45 minutos.
 
 \begin{itemize}
-	\item Verificación: programar un temporizador (un \textit{timer} interno) en el microcontrolador con timers internos para cronometrar la ejecución exacta desde la interrupción del botón de inicio hasta la finalización del ensayo.
+	\item Verificación: programar un temporizador (un \textit{timer} interno) en el microcontrolador con \textit{timers} internos para cronometrar la ejecución exacta desde la interrupción del botón de inicio hasta la finalización del ensayo.
 	\item Validación: un investigador en Biología molecular inicia un ciclo de ensayo y comprueba con su propio reloj que la pantalla táctil exhibe el resultado final antes de que transcurran los 45 minutos exigidos.
 \end{itemize}
 
@@ -694,7 +720,7 @@ Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de
 
 \begin{itemize}
 	\item Verificación: monitorear por medio de la depuración del código las variables de control (Error, P, I, D y salida de control)  introduciendo perturbaciones térmicas forzadas (por ejemplo, ventilando el bloque) y medir el tiempo de respuesta del algoritmo para volver punto crítico de temperatura.
-	\item Validación: el cliente opera el equipo en condiciones ambientales normales de laboratorio durante varias horas y corrobora que la interfaz de usuario nunca arroja una alerta de "falla de temperatura" ni se detiene el ensayo por desestabilización térmica.
+	\item Validación: el cliente opera el equipo en condiciones ambientales normales de laboratorio durante varias horas y corrobora que la interfaz de usuario nunca arroja una alerta de falla de temperatura ni se detiene el ensayo por desestabilización térmica.
 \end{itemize}
 
 \end{itemize}
@@ -732,7 +758,7 @@ Para dar por finalizado el proyecto, se llevará a cabo una reunión de evaluaci
 	\end{itemize}
 		\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:
 	\begin{itemize}
-		\item Mauro Ariel Gianchino analizará junto al director y el cliente los tiempos empleados en el desarrollo del proyecto según se indicaron en el cronograma, como así también la utilización de los recursos ofrecidos. También se documentarán las lecciones aprendidas y los problemas surgidos, como así también cuales fueron los procesos y/o herramientas para solucionarlos o mitigarlos.
+		\item Mauro Ariel Gianchino analizará junto al director y el cliente los tiempos empleados en el desarrollo del proyecto según se indicaron en el cronograma, como así también la utilización de los recursos ofrecidos. También se documentarán las lecciones aprendidas y los problemas surgidos, y cuales fueron los procesos y/o herramientas para solucionarlos o mitigarlos.
 	\end{itemize}
 		\item Acto de agradecimiento.
 	\begin{itemize}
